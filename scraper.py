@@ -29,8 +29,11 @@ def extraer():
             stock = parsed.xpath(STOCK)
             print(name[0])
             print(price[0])
+            #Stock Pendiente a codear.
             print(stock[0])
-            guardar_libro(0,str(name[0]),str(price[0]))
+            num_indice = input("Ingrese índice del libro: ")
+            guardar_libro(0,str(name[int(num_indice)]),str(price[int(num_indice)]))
+            # TODO: Terminar el menú y funciones de este archivo.
 
         else:
             print('No nos pudimos conectar al sitio')
@@ -38,10 +41,21 @@ def extraer():
         pass
 
 def guardar_libro(indice,nombre, precio):
+    '''Método que se conecta con el modelo para guardar el libro'''
     miLibro = Libro()
     miLibro.ingresar_dato(indice, nombre, precio)
 
+def crear_ddbb():
+    ''' Validar mejor'''
+    miLibro = Libro()
+    respuesta = input('Desea crear la base de datos. (S o N)') 
+    if respuesta == "S":
+        miLibro.crear_db()
+    else:
+        print('Ya se creó la bbdd')
+
 def ejecutar():
+    '''Función para inciar otras funciones'''
     extraer()
 
 if __name__ == "__main__":

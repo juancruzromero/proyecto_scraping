@@ -1,3 +1,4 @@
+""" Archivo en donde realizamos el modelo y la conexión a la BBDD"""
 from peewee import *
 import datetime
 
@@ -13,9 +14,21 @@ class Libro(Model):
     timestamp = DateTimeField(default=datetime.datetime.now)
 
     def ingresar_dato(self, ind,nam, pri):
+        '''
+            Método para ingresar datos.
+        '''
         db.connect()
         Libro.create(indice=ind, name=nam,price=pri)
         db.close()
+
+    def crear_db(self):
+        '''
+        Método para crear la base de datos.
+        '''
+        db.connect()
+        db.create_tables([Libro],safe=True)
+        db.close()
+
 
     class Meta:
         database = db
