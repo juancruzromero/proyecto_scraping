@@ -7,3 +7,23 @@ El proyecto consta en traer datos de la web de venta de libros http://books.tosc
 Siempre que sea realice un scraping de la web, debemos considerar que en la raiz de la web, hay un archivo llamado "Robots.txt" en donde nos pueden limitar nuestro scraping en algunos sectores del sitio.
 
 ## Librerías de Python a utilizar ##
+
+Se trabajó con la versión 3.8.2 de python y las librerías que se utilizaron en este proyecto están en requirements.txt
+
+Más información de entornos virtuales y manejo de paquetes pip en la documentación oficial de python:
+https://docs.python.org/3/tutorial/venv.html#managing-packages-with-pip
+
+
+## Configuración del entorno para ejecutar este proyecto ##
+
+### Paso 1 ###
+Se debe configurar el entorno virtual. Yo, personalmente por convención lo llemé venv y lo ignoré en archivo .gitignore antes de subirlo al repositorio.
+Luego instalar las librerías (Ver más arriba el punto "Liberías de python a utilizar")
+
+### Paso 2 ###
+
+El programa cuenta con dos archivos principales:
+
+- El scraper.py ejecutamos la extracción de datos de la web y guardamos los datos en la base de datos Sqlite3.
+
+- El scraper_model.py es el modelo, en donde utilizamos la librería peewee para utilizar un ORM para la conexión a la base de datos.
